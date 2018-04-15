@@ -1,6 +1,6 @@
 # learn-react
 > 参考
-  1. https://juejin.im/post/5a84682ef265da4e83266cc4 - react源码解读
+    1. https://juejin.im/post/5a84682ef265da4e83266cc4 - react源码解读
   2. http://cn.redux.js.org/ - redux入门
   3. https://www.cnblogs.com/rubylouvre/archive/2009/08/08/1541578.html - js-aop的实现
     4. https://stackoverflow.com/questions/45652381/what-purpose-does-makeemptyfunction-serve-in-fbjs - js-noop缺陷及解决思路，参考objectC/Coca编程思想
