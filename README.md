@@ -39,7 +39,7 @@ flux：(state,action)=>state
     ```
 4. 严格的单向数据流、state只读、只能通过action改变state
 
-5. 当触发action后，combineReducers返回的todoApp负责调用两个reducer
+5. 当触发action后，combineReducers返回的todoApp负责调用两个reducer
 ```
 let nextTodos = todos(state.todos, action)
 let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
@@ -47,7 +47,11 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
 
 6. subscribe（fn） 作为dispatch的回调，订阅是把fn推入队列中，在每一次dispatch之后执行队列中的所有任务
 
-7. 展示组件&容器组件；展示组件负责ui展示，可维护一套自己的state，数据来源于props；容器组件负责与redux交互，并把props进行传递，数据来源于store
+7. 展示组件&容器组件；
+* 展示组件负责ui展示，可维护一套自己的state，数据来源于props；
+* 容器组件负责业务逻辑，与redux交互，并把props进行传递，数据来源于props.store或context.store
+
+8. 异步action-中间件
 
 
 ## demo
