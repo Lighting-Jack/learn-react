@@ -12,7 +12,8 @@
 	8. https://www.jianshu.com/p/9873d4ccb891 - redux-connect原理
 	9. https://www.jianshu.com/p/ef6269d9d75a - redux-provider原理
 	10. https://www.cnblogs.com/wilber2013/p/5403350.html - 了解react-redux重要概念
-
+	11. https://cn.redux.js.org/ - redux中文文档（gitbook）
+	12. https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ - 函数编程范式
 ## react源码解读
 1. react组件初始化、挂载
 2. react生命周期
