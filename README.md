@@ -45,7 +45,7 @@ let nextTodos = todos(state.todos, action)
 let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
 ```
 
-6. subscribe（fn） 作为dispatch的回调，一次订阅都是把fn推入队列中，在dispatch之后执行队列中的所有任务
+6. subscribe（fn） 作为dispatch的回调，订阅是把fn推入队列中，在每一次dispatch之后执行队列中的所有任务
 
 7. 展示组件&容器组件；展示组件负责ui展示，可维护一套自己的state，数据来源于props；容器组件负责与redux交互，并把props进行传递，数据来源于store
 
