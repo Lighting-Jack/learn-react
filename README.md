@@ -47,7 +47,7 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
 7. 展示组件&容器组件；展示组件负责ui展示，可维护一套自己的state，数据来源于props；容器组件负责与redux交互，并把props进行传递，数据来源于store
 
 ## demo
-1. counter
+1. [counter](https://github.com/Lighting-Jack/learn-react/tree/master/counter)
 
 ## 本地开发
 1. create-react-app;react开发脚手架，集成所有所需包括webpack-server
