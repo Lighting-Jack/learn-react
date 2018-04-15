@@ -1,6 +1,6 @@
 # learn-react
 >参考
- 1. https://juejin.im/post/5a84682ef265da4e83266cc4 - react源码解读
+	1. https://juejin.im/post/5a84682ef265da4e83266cc4 - react源码解读
   
 
 ## react源码解读
