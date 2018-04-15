@@ -9,6 +9,9 @@
 	5. https://github.com/facebook/react/issues/8559 - react15.x下的一个bug，在16.x解决了
 	6. https://zhuanlan.zhihu.com/p/20346379 - react dom diff算法原理
 	7. https://blog.csdn.net/qq_33642117/article/details/51926634 - interface&implements简介
+	8. https://www.jianshu.com/p/9873d4ccb891 - redux-connect原理
+	9. https://www.jianshu.com/p/ef6269d9d75a - redux-provider原理
+	10. https://www.cnblogs.com/wilber2013/p/5403350.html - 了解react-redux重要概念
 
 ## react源码解读
 1. react组件初始化、挂载
@@ -42,9 +45,10 @@ let nextTodos = todos(state.todos, action)
 let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
 ```
 
-6. subscribe（fn） 作为dispatch的回调，每一次订阅都是把fn推入队列中，在dispatch之后执行队列中的所有任务
+6. subscribe（fn） 作为dispatch的回调，一次订阅都是把fn推入队列中，在dispatch之后执行队列中的所有任务
 
 7. 展示组件&容器组件；展示组件负责ui展示，可维护一套自己的state，数据来源于props；容器组件负责与redux交互，并把props进行传递，数据来源于store
+
 
 ## demo
 1. [counter](https://github.com/Lighting-Jack/learn-react/tree/master/counter)
