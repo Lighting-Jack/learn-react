@@ -1,4 +1,5 @@
 import * as React from "react"
+import { utils } from "../helpers/utils"
 
 export default class inputView extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ export default class inputView extends React.Component {
         timeStamp: new Date().getTime()
     }
     render() {
+        utils.log("InputView", "render", this.props)
         const { increment, decrement } = this.props
         return (
             <input type="text" value={increment + decrement} />

@@ -2,7 +2,8 @@
 
 import * as React from "react"
 import { render } from "react-dom"
-import InputView from "../components/helloSon"
+import InputView from "../components/inputView"
+import TipsView from "../components/tipsView"
 import store from "../store/createStore"
 import { connect, Provider } from "react-redux"
 
@@ -25,6 +26,9 @@ class App extends React.Component {
             }
         }
     }
+    componentDidMount() {
+        utils.log("App", "Didmount", this.props)
+    }
     // 只有es7才有静态属性，es6只有静态方法，所有要加入babel-state0转换规则
     static defaultProps = {
         increCb() {
@@ -38,6 +42,7 @@ class App extends React.Component {
         }
     }
     render() {
+        utils.log("App", "render", this.props)
         return (
             <div>
                 <InputView
@@ -46,6 +51,7 @@ class App extends React.Component {
                 <button onClick={this.props.increCb}>+</button>
                 <button onClick={this.props.decreCb}>-</button>
                 <button onClick={this.props.reset}>reset</button>
+                <TipsView></TipsView>
             </div>
         )
     }
@@ -66,4 +72,7 @@ const unsubscribe = store.subscribe(() => {
  * @param mapDispatchToProps 将store.dispatch粘贴到propx上
  * @param mergeProps 待了解...
  */
-export default connect(state => state)(App)
+const mapStateToProps = (state) => {
+    return state
+}
+export default connect(mapStateToProps)(App)

@@ -35,8 +35,17 @@ const utils = {
      * @param {*} modifier 修饰符
      * @param {*} ele 内容/值
      */
-    log(cmd = "", modifier = "", ele = "") {
-        console && console.log(`%c${this.titleCase(cmd)}%c${this.titleCase(modifier)}%c${ele}`, "background:grey;font:14px/20px '黑体';text-align:center;padding:0 10px;color:white;display:block;border-radius:40px 0 40px 0", "background:orange;border-radius:40px 0 40px 0;padding: 0 10px", "background:green;border-radius:40px 0 40px 0;padding: 0 10px;color:white")
+    log(cmd = "", modifier = "", ele) {
+        const type = typeof ele;
+        let jsonContent;
+        if (type === "object") {
+            jsonContent = ele;
+            ele = ""
+        } else {
+            jsonContent = "";
+            ele = ele || ""
+        }
+        console && console.log(`%c${this.titleCase(cmd)}%c${this.titleCase(modifier)}%c${ele}`, "background:grey;font:14px/20px '黑体';text-align:center;padding:0 10px;color:white;display:block;border-radius:40px 0 40px 0", "background:orange;border-radius:40px 0 40px 0;padding: 0 10px", "background:green;border-radius:40px 0 40px 0;padding: 0 10px;color:white", jsonContent)
     }
 }
 
