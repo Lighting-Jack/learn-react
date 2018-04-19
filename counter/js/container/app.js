@@ -26,6 +26,9 @@ class App extends React.Component {
             }
         }
     }
+    componentWillMount() {
+        utils.log("App", "Willmount", this.props)
+    }
     componentDidMount() {
         utils.log("App", "Didmount", this.props)
     }

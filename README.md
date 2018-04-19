@@ -54,6 +54,9 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
 
 8. 异步action-中间件
 
+9. redux-connect、provider原理
+
+10. redux-state范式化
 
 ## demo
 1. [counter](https://github.com/Lighting-Jack/learn-react/tree/master/counter)
