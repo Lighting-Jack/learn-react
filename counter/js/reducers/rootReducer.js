@@ -3,11 +3,11 @@ import { utils, AopProxyMixin } from "../helpers/utils"
 import {
     increment,
     decrement,
-    resetCounter
+    fetchState
 } from "./reducers"
 
 export const rootReducer = combineReducers({
     increment,
     decrement,
-    resetCounter
+    fetchState
 })

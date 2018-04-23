@@ -14,6 +14,9 @@ export default class inputView extends React.Component {
         name: "little Jack",
         timeStamp: new Date().getTime()
     }
+    componentDidMount() {
+        utils.log("InputView", "didmount", this.props)
+    }
     render() {
         utils.log("InputView", "render", this.props)
         const { increment, decrement } = this.props

@@ -38,7 +38,9 @@ flux：(state,action)=>state
     reducer(accumulator, currentValue, currentIndex, array)
 
     ```
-4. 严格的单向数据流、state只读、只能通过action改变state
+4. 严格的单向数据流；自上而下
+	state只读；易控制和调试
+	只能通过action改变state；在reducer直接修改state不会触发redux-listening，redux会认为没有更新
 
 5. 当触发action后，combineReducers返回的todoApp负责调用两个reducer
 ```
@@ -56,7 +58,50 @@ let nextVisibleTodoFilter = visibleTodoFilter(state.visibleTodoFilter, action)
 
 9. redux-connect、provider原理
 
-10. redux-state范式化
+10. redux-state范式化，要把store看成数据库，redux-orm了解一下
+
+11. reducer复用；高阶reducer-一个接收reducer函数为参数，并返回一个新的reducer的函数
+通过action特殊字段或type前后缀->reducer生成器->reducer通用过滤器
+```
+function counter(state = 0, action) {
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1;
+        case 'DECREMENT':
+            return state - 1;
+        default:
+            return state;
+    }
+}
+function createReducer(initialState, handlers) {
+  return function reducer(state = initialState, action) {
+    if (handlers.hasOwnProperty(action.type)) {
+      return handlers[action.type](state, action);
+    } else {
+      return state;
+    }
+  }
+}
+function createNamedWrapperReducer(reducerFunction, reducerName) {
+    return (state, action) => {
+        const {name} = action;
+        const isInitializationCall = state === undefined;
+        if(name !== reducerName && !isInitializationCall) return state;
+
+        return reducerFunction(state, action);    
+    }
+}
+```
+
+12. 不可变更新模式；reducer应该返回新的引用类型，避免在原有的基础上修改
+
+13. 初始化state
+* preloadState，不使用combineReducer时，都是优先于es6默认参数，es6默认参数会失效
+* es6默认参数/reducer显式判断并设置初始值
+
+14. actionCreator生成器
+
+15. applyMiddleWare、createStore、thunkMiddleWare原理 - array.prototype.reduce
 
 ## demo
 1. [counter](https://github.com/Lighting-Jack/learn-react/tree/master/counter)

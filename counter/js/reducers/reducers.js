@@ -27,3 +27,18 @@ export const decrement = function (state = 0, action) {
             return state;
     }
 }
+
+/**
+ * 反面教材，在reducer中修改state
+ * @param {*} state 
+ * @param {*} action 
+ */
+export const fetchState = function (state = {}, action) {
+    switch (action.type) {
+        case 'FETCH_START':
+            state.isFetch = true
+            return state;
+        default:
+            return state;
+    }
+}

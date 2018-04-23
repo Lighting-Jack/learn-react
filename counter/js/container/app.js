@@ -2,11 +2,11 @@
 
 import * as React from "react"
 import { render } from "react-dom"
+import { connect, Provider } from "react-redux"
+
 import InputView from "../components/inputView"
 import TipsView from "../components/tipsView"
 import store from "../store/createStore"
-import { connect, Provider } from "react-redux"
-
 const utils = store.utils;
 
 /**
@@ -27,7 +27,6 @@ class App extends React.Component {
         }
     }
     componentWillMount() {
-        utils.log("App", "Willmount", this.props)
     }
     componentDidMount() {
         utils.log("App", "Didmount", this.props)
@@ -35,13 +34,18 @@ class App extends React.Component {
     // 只有es7才有静态属性，es6只有静态方法，所有要加入babel-state0转换规则
     static defaultProps = {
         increCb() {
-            store.dispatch({ type: 'INCREMENT' })
+            store.dispatch((dispatch) => {
+                return dispatch({ type: 'INCREMENT' })
+            })
         },
         decreCb() {
             store.dispatch({ type: 'DECREMENT' })
         },
         reset() {
             store.dispatch({ type: 'RESET_COUNTER' })
+        },
+        fetch() {
+            store.dispatch({ type: 'FETCH_START' })
         }
     }
     render() {
@@ -51,10 +55,14 @@ class App extends React.Component {
                 <InputView
                     {...this.props}
                 ></InputView>
-                <button onClick={this.props.increCb}>+</button>
+                <button onClick={this.props.increCb.bind(this)}>+</button>
                 <button onClick={this.props.decreCb}>-</button>
                 <button onClick={this.props.reset}>reset</button>
+                <button onClick={this.props.fetch}>fetch</button>
                 <TipsView></TipsView>
+                <div className="bfc-content">
+                    <div className="float-l">Test</div>
+                </div>
             </div>
         )
     }
@@ -76,6 +84,12 @@ const unsubscribe = store.subscribe(() => {
  * @param mergeProps 待了解...
  */
 const mapStateToProps = (state) => {
-    return state
+    return {
+        increment: state.increment,
+        decrement: state.decrement
+    }
 }
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => Object.assign({},
+    { dispatch }
+);
+export default connect(mapStateToProps, mapDispatchToProps)(App)
