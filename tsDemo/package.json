@@ -1,0 +1,15 @@
+{
+  "name": "tsdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "louiswu",
+  "license": "ISC",
+  "devDependencies": {
+    "moment": "^2.22.1",
+    "typescript": "^2.8.3"
+  }
+}

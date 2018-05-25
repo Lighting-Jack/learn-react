@@ -1,0 +1,18 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "test all",
+  "main": "index.js",
+  "modules": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "louiswu",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.5.1"
+  },
+  "devDependencies": {
+    "moment": "^2.22.1"
+  }
+}

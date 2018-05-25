@@ -1,0 +1,13 @@
+111
+TypeError: child is not a function
+    at Object.<anonymous> (/Users/jack/vscode/learn-react/demo/index.js:14:18)
+    at Module._compile (module.js:649:30)
+    at Object.Module._extensions..js (module.js:660:10)
+    at Module.load (module.js:561:32)
+    at tryModuleLoad (module.js:501:12)
+    at Function.Module._load (module.js:493:3)
+    at Function.Module.runMain (module.js:690:10)
+    at startup (bootstrap_node.js:194:16)
+    at bootstrap_node.js:666:3
+child
+111
