@@ -1,6 +1,6 @@
 {
-  "name": "module-1",
-  "version": "0.0.3",
+  "name": "@tencent/module-1",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
